@@ -21,6 +21,8 @@ public class RabbitMQConfiguration {
 	static final String TOPIC_EXCHANGE = "exchange.receipt.topic";
 
 	static final String QUEUE_NAME = "q.planning.all";
+	
+	static final String DEAD_LETTER_QUEUE_NAME = "q.planning.all";
 
 	static final String TOPIC_NAME = "RECEIPT.*";
 
@@ -29,6 +31,11 @@ public class RabbitMQConfiguration {
 		return new Queue(QUEUE_NAME, false);
 	}
 
+	@Bean
+    Queue deadLetterQueueName() {
+		return new Queue(QUEUE_NAME, false);
+	}
+	
 	@Bean
 	TopicExchange exchange() {
 		return new TopicExchange(TOPIC_EXCHANGE);
